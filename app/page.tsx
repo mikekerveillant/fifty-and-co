@@ -166,14 +166,14 @@ export default function FiftyAndCo() {
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href={instagram} target="_blank" rel="noopener noreferrer">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-white px-7 text-[#2f241d] hover:bg-white/90"
-                >
-                  Order Now <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+  <Button
+    size="lg"
+    className="rounded-full bg-green-600 px-7 text-white hover:bg-green-700"
+  >
+    Order Now <ArrowRight className="ml-2 h-5 w-5" />
+  </Button>
+</a>
 
               <a href="#story">
                 <Button
