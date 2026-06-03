@@ -108,9 +108,13 @@ export default function FiftyAndCo() {
     <main className="min-h-screen bg-[#f7f1e8] text-[#2f241d]">
       <header className="fixed top-0 z-50 w-full border-b border-[#2f241d]/10 bg-[#f7f1e8]/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <a href="#top" className="text-xl font-black tracking-tight">
-            50 & Co.
-          </a>
+          <a href="#top" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="50 & Co. Bakery"
+    className="h-10 w-auto"
+  />
+</a>
 
           <nav className="hidden items-center gap-7 text-sm font-semibold text-[#2f241d]/70 md:flex">
             <a href="#story">Story</a>
