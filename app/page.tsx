@@ -122,7 +122,7 @@ export default function FiftyAndCo() {
 
           <div className="flex items-center gap-2">
   <a href={whatsapp} target="_blank" rel="noopener noreferrer">
-    <Button className="rounded-full bg-green-600 px-5 text-white hover:bg-green-700">
+    <Button className="rounded-full bg-[#c78d8d] px-8 text-white hover:bg-[#b97b7b]">
       WhatsApp
     </Button>
   </a>
@@ -477,7 +477,7 @@ export default function FiftyAndCo() {
   <a href={whatsapp} target="_blank" rel="noopener noreferrer">
     <Button
       size="lg"
-      className="rounded-full bg-green-600 px-8 text-white hover:bg-green-700"
+      className="rounded-full bg-[#c78d8d] px-8 text-white hover:bg-[#b97b7b]"
     >
       Order via WhatsApp
     </Button>
