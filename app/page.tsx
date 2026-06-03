@@ -120,11 +120,22 @@ export default function FiftyAndCo() {
             <a href="#visit">Visit</a>
           </nav>
 
-          <a href={instagram} target="_blank" rel="noopener noreferrer">
-            <Button className="rounded-full bg-[#2f241d] px-5 text-white hover:bg-[#46362c]">
-              Order via IG
-            </Button>
-          </a>
+          <div className="flex items-center gap-2">
+  <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+    <Button className="rounded-full bg-green-600 px-5 text-white hover:bg-green-700">
+      WhatsApp
+    </Button>
+  </a>
+
+  <a href={instagram} target="_blank" rel="noopener noreferrer">
+    <Button
+      variant="outline"
+      className="rounded-full border-[#2f241d]/20"
+    >
+      Instagram
+    </Button>
+  </a>
+</div>
         </div>
       </header>
 
@@ -462,16 +473,26 @@ export default function FiftyAndCo() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <a href={instagram} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="rounded-full bg-[#2f241d] px-8 text-white hover:bg-[#46362c]"
-              >
-                Order via Instagram
-              </Button>
-            </a>
-          </div>
+          <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+  <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+    <Button
+      size="lg"
+      className="rounded-full bg-green-600 px-8 text-white hover:bg-green-700"
+    >
+      Order via WhatsApp
+    </Button>
+  </a>
+
+  <a href={instagram} target="_blank" rel="noopener noreferrer">
+    <Button
+      size="lg"
+      variant="outline"
+      className="rounded-full border-[#2f241d]/20"
+    >
+      Browse Instagram
+    </Button>
+  </a>
+</div>
         </div>
       </section>
 
