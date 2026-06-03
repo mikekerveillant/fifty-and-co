@@ -149,15 +149,15 @@ export default function FiftyAndCo() {
 
         <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 pt-20">
           <div className="max-w-3xl text-white">
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/75">
-              Makati City
-            </p>
+            <h1 className="text-6xl font-black leading-none md:text-8xl">
+  50 & Co.
+  <br />
+  Bakery
+</h1>
 
-            <h1 className="mt-6 text-6xl font-black leading-none md:text-8xl">
-              50 & Co.
-              <br />
-              Bakery
-            </h1>
+<p className="mt-4 text-sm font-semibold uppercase tracking-[0.4em] text-white/75">
+  Makati City
+</p>
 
             <p className="mt-8 max-w-xl text-xl leading-9 text-white/85">
               Small-batch artisan baking from Makati.
