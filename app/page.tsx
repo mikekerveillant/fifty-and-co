@@ -13,7 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 
 const instagram = "https://www.instagram.com/50andco.bakery/";
-
+const whatsapp =
+  "https://wa.me/639171234567?text=Hi%2050%20%26%20Co.%20Bakery,%20I'd%20like%20to%20place%20an%20order.";
 const signatureCakes = [
   {
     title: "Confetti Cake",
@@ -521,7 +522,25 @@ export default function FiftyAndCo() {
           <p>Crafted by hand. Baked fresh. Made to share.</p>
         </div>
       </footer>
+<a
+  href={whatsapp}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-5 right-24 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-xl transition hover:scale-105"
+  aria-label="Order via WhatsApp"
+>
+  <MessageCircle className="h-7 w-7" />
+</a>
 
+<a
+  href={instagram}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f241d] text-white shadow-xl transition hover:scale-105"
+  aria-label="Order via Instagram"
+>
+  <ExternalLink className="h-7 w-7" />
+</a>
       <a
         href={instagram}
         target="_blank"
