@@ -169,7 +169,7 @@ export default function FiftyAndCo() {
               <a href={whatsapp} target="_blank" rel="noopener noreferrer">
   <Button
     size="lg"
-    className="rounded-full bg-green-600 px-7 text-white hover:bg-green-700"
+    className="rounded-full bg-[#c78d8d] px-7 text-white hover:bg-[#b97b7b]"
   >
     Order Now <ArrowRight className="ml-2 h-5 w-5" />
   </Button>
