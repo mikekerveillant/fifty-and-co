@@ -14,52 +14,41 @@ import { Button } from "@/components/ui/button";
 
 const instagram = "https://www.instagram.com/50andco.bakery/";
 
-const signatureCollection = [
-  {
-    title: "Cakes",
-    image: "/confetti-cake.jpg",
-    description: "Celebration cakes crafted for life’s special moments.",
-  },
-  {
-    title: "Cookies",
-    image: "/cookies.jpg",
-    description: "Small-batch cookies baked fresh and made to share.",
-  },
-  {
-    title: "Ensaymadas",
-    image: "/ensymadas.jpg",
-    description: "Soft, buttery and unmistakably Filipino.",
-  },
-  {
-    title: "Empanadas",
-    image: "/empanadas.jpg",
-    description: "Flaky pastry with deeply satisfying fillings.",
-  },
-];
 const signatureCakes = [
-   {
+  {
     title: "Confetti Cake",
     image: "/confetti-cake.jpg",
+    description: "Soft layers, rich buttercream, and colorful sprinkles made for birthdays, celebrations, and gathering around the table.",
   },
   {
     title: "Pavlova",
     image: "/pavlova.jpg",
+    description: "Light, airy meringue topped with cream and seasonal fruit.",
   },
   {
     title: "Lemon Torte",
     image: "/lemon-torte.jpg",
+    description: "Bright citrus flavors balanced with delicate sweetness.",
   },
   {
     title: "Strawberry Shortcake",
     image: "/strawberry-shortcake.jpg",
+    description: "Layers of sponge, cream and fresh strawberries.",
   },
   {
     title: "Mocha Crunch",
     image: "/mocha-crunch.jpg",
+    description: "Chocolate, coffee and texture in every bite.",
   },
   {
     title: "Coffee Crunch",
     image: "/coffee-crunch.jpg",
+    description: "A bakery favorite with rich coffee notes and crisp crunch.",
+  },
+  {
+    title: "Sans Rival",
+    image: "/sans-rival.jpg",
+    description: "Layers of crisp meringue, buttercream and roasted cashews.",
   },
 ];
 
@@ -249,10 +238,14 @@ export default function FiftyAndCo() {
       />
 
       <div className="p-6">
-        <h3 className="text-2xl font-black">
-          {cake.title}
-        </h3>
-      </div>
+  <h3 className="text-2xl font-black">
+    {cake.title}
+  </h3>
+
+  <p className="mt-3 text-sm leading-6 text-[#2f241d]/65">
+    {cake.description}
+  </p>
+</div>
     </div>
   ))}
 </div>
@@ -268,7 +261,7 @@ export default function FiftyAndCo() {
       Bakery staples people love.
     </h2>
 
-    <div className="mt-12 grid gap-6 md:grid-cols-3">
+    <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
         <img
           src="/cookies.jpg"
@@ -276,10 +269,27 @@ export default function FiftyAndCo() {
           className="aspect-[4/3] w-full object-cover"
         />
         <div className="p-6">
-          <h3 className="text-2xl font-black">Cookies</h3>
-        </div>
-      </div>
+  <h3 className="text-2xl font-black">Cookies</h3>
 
+  <p className="mt-3 text-[#2f241d]/65">
+    Small-batch cookies baked fresh and made to share.
+  </p>
+</div>
+      </div>
+       <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
+        <img
+          src="/polvoron.jpeg"
+          alt="Polvoron"
+          className="aspect-[4/3] w-full object-cover"
+        />
+        <div className="p-6">
+  <h3 className="text-2xl font-black">Polvoron</h3>
+
+  <p className="mt-3 text-[#2f241d]/65">
+    A classic Filipino favorite, handcrafted in small batches.
+  </p>
+</div>
+      </div>
       <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
         <img
           src="/ensymadas.jpg"
@@ -287,8 +297,12 @@ export default function FiftyAndCo() {
           className="aspect-[4/3] w-full object-cover"
         />
         <div className="p-6">
-          <h3 className="text-2xl font-black">Ensaymadas</h3>
-        </div>
+  <h3 className="text-2xl font-black">Ensaymadas</h3>
+
+  <p className="mt-3 text-[#2f241d]/65">
+    Soft, buttery and generously topped for the perfect indulgence.
+  </p>
+</div>
       </div>
 
       <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
@@ -298,8 +312,12 @@ export default function FiftyAndCo() {
           className="aspect-[4/3] w-full object-cover"
         />
         <div className="p-6">
-          <h3 className="text-2xl font-black">Empanadas</h3>
-        </div>
+  <h3 className="text-2xl font-black">Empanadas</h3>
+
+  <p className="mt-3 text-[#2f241d]/65">
+    Golden, flaky pastry filled with deeply satisfying flavors.
+  </p>
+</div>
       </div>
     </div>
   </div>
