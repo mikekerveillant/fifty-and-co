@@ -354,7 +354,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     onClick={() => addToCart("Cookies")}
     className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
   >
-    Add to Order
+    Add to Cart
   </Button>
 </div>
       </div>
@@ -374,7 +374,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     onClick={() => addToCart("Polvoron")}
     className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
   >
-    Add to Order
+    Add to Cart
   </Button>
 </div>
       </div>
@@ -394,7 +394,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     onClick={() => addToCart("Ensaymadas")}
     className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
   >
-    Add to Order
+    Add to Cart
   </Button>
 </div>
       </div>
@@ -415,7 +415,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     onClick={() => addToCart("Empanadas")}
     className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
   >
-    Add to Order
+    Add to Cart
   </Button>
 </div>
       </div>
@@ -635,7 +635,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       {cart.length > 0 && (
   <div className="fixed bottom-24 right-5 z-50 w-80 rounded-[1.5rem] bg-white p-5 text-[#2f241d] shadow-2xl">
    <p className="font-black">
-  Your Order ({totalItems})
+  Your Cart ({totalItems})
 </p>
 
     <div className="mt-3 max-h-40 space-y-2 overflow-y-auto">
