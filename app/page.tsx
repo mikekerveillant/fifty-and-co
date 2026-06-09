@@ -1,20 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   ArrowRight,
-  Clock,
-  ExternalLink,
   MapPin,
   MessageCircle,
   Package,
-  Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const instagram = "https://www.instagram.com/50andco.bakery/";
 const whatsapp =
-  "https://wa.me/639171234567?text=Hi%2050%20%26%20Co.%20Bakery,%20I'd%20like%20to%20place%20an%20order.";
+  "https://wa.me/639171410111?text=Hi%2050%20%26%20Co.%20Bakery,%20I'd%20like%20to%20place%20an%20order.";
 const signatureCakes = [
   {
     title: "Confetti Cake",
@@ -104,6 +102,50 @@ const orderSteps = [
 ];
 
 export default function FiftyAndCo() {
+  const [cart, setCart] = useState<{ name: string; quantity: number }[]>([]);
+
+const addToCart = (item: string) => {
+  setCart((current) => {
+    const existing = current.find((cartItem) => cartItem.name === item);
+
+    if (existing) {
+      return current.map((cartItem) =>
+        cartItem.name === item
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+    }
+
+    return [...current, { name: item, quantity: 1 }];
+  });
+};
+
+const increaseQuantity = (item: string) => {
+  addToCart(item);
+};
+
+const decreaseQuantity = (item: string) => {
+  setCart((current) =>
+    current
+      .map((cartItem) =>
+        cartItem.name === item
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      )
+      .filter((cartItem) => cartItem.quantity > 0)
+  );
+};
+
+const orderMessage = encodeURIComponent(
+  `Hi 50 & Co. Bakery, I'd like to order:\n\n${cart
+    .map((item) => `- ${item.quantity}x ${item.name}`)
+    .join("\n")}\n\nName:\nPickup/Delivery:\nPreferred date:`
+);
+
+const whatsappOrder = `https://wa.me/639171410111?text=${orderMessage}`;
+
+const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <main className="min-h-screen bg-[#f7f1e8] text-[#2f241d]">
       <header className="fixed top-0 z-50 w-full border-b border-[#2f241d]/10 bg-[#f7f1e8]/85 backdrop-blur">
@@ -118,7 +160,7 @@ export default function FiftyAndCo() {
 
           <nav className="hidden items-center gap-7 text-sm font-semibold text-[#2f241d]/70 md:flex">
             <a href="#story">Story</a>
-            <a href="#collection">Collection</a>
+            <a href="#signaturecakes">Cakes</a>
             <a href="#sandwich">Sandwich Club</a>
             <a href="#order">Order</a>
             <a href="#visit">Visit</a>
@@ -242,10 +284,14 @@ export default function FiftyAndCo() {
           </div>
 
           <div className="mt-12 flex gap-6 overflow-x-auto pb-4">
-  {signatureCakes.map((cake) => (
+  {signatureCakes.map((cake) => {
+  const quantityInCart =
+    cart.find((item) => item.name === cake.title)?.quantity || 0;
+
+  return (
     <div
       key={cake.title}
-      className="w-80 shrink-0 overflow-hidden rounded-[2rem] bg-white shadow-sm"
+      className="flex w-80 shrink-0 flex-col overflow-hidden rounded-[2rem] bg-white shadow-sm"
     >
       <img
         src={cake.image}
@@ -253,17 +299,30 @@ export default function FiftyAndCo() {
         className="aspect-[4/5] w-full object-cover"
       />
 
-      <div className="p-6">
+      <div className="flex h-full flex-col p-6">
   <h3 className="text-2xl font-black">
     {cake.title}
   </h3>
-
-  <p className="mt-3 text-sm leading-6 text-[#2f241d]/65">
-    {cake.description}
+<p className="mt-3 text-sm leading-6 text-[#2f241d]/65">
+  {cake.description}
+</p>
+ {quantityInCart > 0 && (
+  <p className="mt-2 text-sm font-medium text-green-600">
+    ✓ {quantityInCart} in cart
   </p>
+  
+)}
+
+  <Button
+    onClick={() => addToCart(cake.title)}
+    className="mt-auto rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
+  >
+    Add to Cart
+  </Button>
 </div>
     </div>
-  ))}
+ );
+})}
 </div>
         </div>
       </section>
@@ -284,12 +343,19 @@ export default function FiftyAndCo() {
           alt="Cookies"
           className="aspect-[4/3] w-full object-cover"
         />
-        <div className="p-6">
+     <div className="p-6">
   <h3 className="text-2xl font-black">Cookies</h3>
 
   <p className="mt-3 text-[#2f241d]/65">
     Small-batch cookies baked fresh and made to share.
   </p>
+
+  <Button
+    onClick={() => addToCart("Cookies")}
+    className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
+  >
+    Add to Order
+  </Button>
 </div>
       </div>
        <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
@@ -304,6 +370,12 @@ export default function FiftyAndCo() {
   <p className="mt-3 text-[#2f241d]/65">
     A classic Filipino favorite, handcrafted in small batches.
   </p>
+   <Button
+    onClick={() => addToCart("Polvoron")}
+    className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
+  >
+    Add to Order
+  </Button>
 </div>
       </div>
       <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
@@ -318,6 +390,12 @@ export default function FiftyAndCo() {
   <p className="mt-3 text-[#2f241d]/65">
     Soft, buttery and generously topped for the perfect indulgence.
   </p>
+   <Button
+    onClick={() => addToCart("Ensaymadas")}
+    className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
+  >
+    Add to Order
+  </Button>
 </div>
       </div>
 
@@ -333,6 +411,12 @@ export default function FiftyAndCo() {
   <p className="mt-3 text-[#2f241d]/65">
     Golden, flaky pastry filled with deeply satisfying flavors.
   </p>
+   <Button
+    onClick={() => addToCart("Empanadas")}
+    className="mt-5 rounded-full bg-[#2f241d] text-white hover:bg-[#46362c]"
+  >
+    Add to Order
+  </Button>
 </div>
       </div>
     </div>
@@ -478,6 +562,7 @@ export default function FiftyAndCo() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+  
   <a href={whatsapp} target="_blank" rel="noopener noreferrer">
     <Button
       size="lg"
@@ -547,6 +632,56 @@ export default function FiftyAndCo() {
           <p>Crafted by hand. Baked fresh. Made to share.</p>
         </div>
       </footer>
+      {cart.length > 0 && (
+  <div className="fixed bottom-24 right-5 z-50 w-80 rounded-[1.5rem] bg-white p-5 text-[#2f241d] shadow-2xl">
+   <p className="font-black">
+  Your Order ({totalItems})
+</p>
+
+    <div className="mt-3 max-h-40 space-y-2 overflow-y-auto">
+   {cart.map((item) => (
+  <div
+    key={item.name}
+    className="flex items-center justify-between gap-3"
+  >
+    <div>
+      <p className="font-semibold">{item.name}</p>
+
+      <p className="text-xs text-[#2f241d]/45">
+        {item.quantity} item{item.quantity > 1 ? "s" : ""}
+      </p>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => decreaseQuantity(item.name)}
+        className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2f241d]/10 text-[#2f241d]"
+      >
+        -
+      </button>
+
+      <span className="w-5 text-center text-sm font-bold">
+        {item.quantity}
+      </span>
+
+      <button
+        onClick={() => increaseQuantity(item.name)}
+        className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2f241d] text-white"
+      >
+        +
+      </button>
+    </div>
+  </div>
+))}
+    </div>
+
+    <a href={whatsappOrder} target="_blank" rel="noopener noreferrer">
+      <Button className="mt-4 w-full rounded-full bg-green-600 text-white hover:bg-green-700">
+       Order {totalItems} item{totalItems > 1 ? "s" : ""} via WhatsApp
+      </Button>
+    </a>
+  </div>
+)}
 <a
   href={whatsapp}
   target="_blank"
@@ -573,7 +708,14 @@ export default function FiftyAndCo() {
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f241d] text-white shadow-xl transition hover:scale-105"
         aria-label="Order via Instagram"
       >
-        <ExternalLink className="h-7 w-7" />
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  className="h-7 w-7"
+>
+  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Z" />
+</svg>
       </a>
     </main>
   );
