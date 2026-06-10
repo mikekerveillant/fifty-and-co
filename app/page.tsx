@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 
 const instagram = "https://www.instagram.com/50andco.bakery/";
 const whatsapp =
-  "https://wa.me/639171410111?text=Hi%2050%20%26%20Co.%20Bakery,%20I'd%20like%20to%20place%20an%20order.";
+  "https://wa.me/639178640111?text=Hi%2050%20%26%20Co.%20Bakery,%20I'd%20like%20to%20place%20an%20order.";
 const signatureCakes = [
   {
     title: "Confetti Cake",
@@ -142,7 +142,7 @@ const orderMessage = encodeURIComponent(
     .join("\n")}\n\nName:\nPickup/Delivery:\nPreferred date:`
 );
 
-const whatsappOrder = `https://wa.me/639171410111?text=${orderMessage}`;
+const whatsappOrder = `https://wa.me/639178640111?text=${orderMessage}`;
 
 const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -586,45 +586,89 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       </section>
 
       <section id="visit" className="py-24">
-        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#2f241d] text-white md:grid-cols-2">
-          <div className="p-8 md:p-12">
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-white/50">
-              Visit / Order
-            </p>
+  <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#2f241d] text-white lg:grid-cols-3">
+    <div className="p-8 md:p-12">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-white/50">
+        Visit / Order
+      </p>
 
-            <h2 className="mt-4 text-5xl font-black leading-tight">
-              Baked in Makati.
-              <br />
-              Made to share.
-            </h2>
+      <h2 className="mt-4 text-5xl font-black leading-tight">
+        Baked in Makati.
+        <br />
+        Made to share.
+      </h2>
 
-            <div className="mt-8 space-y-4 text-white/75">
-              <p className="flex items-center gap-3">
-                <MapPin className="h-5 w-5" /> Makati City
-              </p>
-              <p className="flex items-center gap-3">
-                <Package className="h-5 w-5" /> Pickup & delivery available
-              </p>
-              <p className="flex items-center gap-3">
-                <ExternalLink className="h-5 w-5" /> Order through Instagram
-              </p>
-            </div>
-          </div>
+      <div className="mt-8 space-y-4 text-white/75">
+        <p className="flex items-start gap-3">
+  <MapPin className="mt-1 h-5 w-5 shrink-0" />
+  <span>
+    New Solid Building, back entrance
+    <br />
+    123 Jupiter
+    <br />
+    Makati City, 1200 Metro Manila
+  </span>
+</p>
 
-          <div className="bg-[#fffaf2] p-8 text-[#2f241d] md:p-12">
-            <p className="text-lg leading-8">
-              Follow 50 & Co. for weekly releases, limited bakes, and Saturday
-              Sandwich Club drops.
-            </p>
+        <p className="flex items-center gap-3">
+          <Package className="h-5 w-5" /> Pickup & delivery available
+        </p>
 
-            <a href={instagram} target="_blank" rel="noopener noreferrer">
-              <Button className="mt-8 rounded-full bg-[#2f241d] px-7 text-white hover:bg-[#46362c]">
-                Follow @50andco.bakery
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
+        <p className="flex items-center gap-3">
+          <MessageCircle className="h-5 w-5" /> Order through WhatsApp
+        </p>
+      </div>
+
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+          <Button className="rounded-full bg-[#c78d8d] px-7 text-white hover:bg-[#b97b7b]">
+            Order via WhatsApp
+          </Button>
+        </a>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=New%20Solid%20Building%20123%20Jupiter%20Makati"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            variant="outline"
+            className="rounded-full border-white/30 bg-white/10 px-7 text-white hover:bg-white/20 hover:text-white"
+          >
+            Open in Maps
+          </Button>
+        </a>
+      </div>
+    </div>
+
+   <div className="bg-[#f2ece2] p-4">
+  <div className="h-full min-h-[350px] overflow-hidden rounded-[1.5rem]">
+    <iframe
+      title="50 & Co. Bakery Map"
+      src="https://www.google.com/maps?q=New%20Solid%20Building%20123%20Jupiter%20Makati%20City&output=embed"
+      className="h-full w-full border-0"
+      loading="lazy"
+    />
+  </div>
+</div>
+<div className="bg-[#fffaf2] p-8 text-[#2f241d] md:p-12">
+  <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#2f241d]/50">
+    Follow Along
+  </p>
+
+  <p className="mt-4 text-lg leading-8">
+    Follow 50 & Co. for weekly releases, limited bakes, and Saturday
+    Sandwich Club drops.
+  </p>
+
+  <a href={instagram} target="_blank" rel="noopener noreferrer">
+    <Button className="mt-8 rounded-full bg-[#2f241d] px-7 text-white hover:bg-[#46362c]">
+      Follow @50andco.bakery
+    </Button>
+  </a>
+</div>
+  </div>
+</section>
 
       <footer className="border-t border-[#2f241d]/10 py-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 text-sm text-[#2f241d]/50 md:flex-row">
