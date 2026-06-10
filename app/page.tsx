@@ -202,7 +202,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 </h1>
 
 <p className="mt-4 text-sm font-semibold uppercase tracking-[0.4em] text-white/75">
-  Makati City
+  Artisan Bakery
 </p>
 
             <p className="mt-8 max-w-xl text-xl leading-9 text-white/85">
@@ -257,7 +257,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             </h2>
 
             <p className="mt-8 text-lg leading-9 text-[#2f241d]/70">
-              What began as a passion for baking has grown into one of Makati’s
+              What began as a passion for baking has grown into one of Manila’s
               most loved artisan bakeries. Every cake, cookie and pastry
               reflects a commitment to quality, craftsmanship and community.
             </p>
