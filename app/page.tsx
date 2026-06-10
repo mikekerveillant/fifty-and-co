@@ -587,7 +587,7 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
       <section id="visit" className="py-24">
   <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-[#2f241d] text-white lg:grid-cols-[2fr_1fr]">
-    <div className="grid gap-6 p-8 md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
+    <div className="grid items-start gap-6 p-8 md:p-12 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
         <p className="text-sm font-bold uppercase tracking-[0.3em] text-white/50">
           Visit / Order
@@ -603,6 +603,8 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
           <p className="flex items-start gap-3">
             <MapPin className="mt-1 h-5 w-5 shrink-0" />
             <span>
+              50 & Co. Bakery
+              <br />
               New Solid Building, back entrance
               <br />
               123 Jupiter
@@ -615,45 +617,43 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             <Package className="h-5 w-5" /> Pickup & delivery available
           </p>
 
-          <p className="flex items-center gap-3">
-            <MessageCircle className="h-5 w-5" /> Order through WhatsApp
-          </p>
         </div>
 
         <div className="mt-8 flex flex-col gap-3">
           <a href={whatsapp} target="_blank" rel="noopener noreferrer">
             <Button className="rounded-full bg-[#c78d8d] px-7 text-white hover:bg-[#b97b7b]">
-              Order via WhatsApp
+              <MessageCircle className="h-5 w-5" /> Order via WhatsApp
             </Button>
           </a>
 
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=New%20Solid%20Building%20123%20Jupiter%20Makati"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              variant="outline"
-              className="rounded-full border-white/30 bg-white/10 px-7 text-white hover:bg-white/20 hover:text-white"
-            >
-              Open in Maps
-            </Button>
-          </a>
         </div>
       </div>
 
-      <div className="rounded-[1.75rem] bg-[#fffaf2] p-3 shadow-2xl shadow-black/20">
+      <div className="h-fit rotate-[0.5deg] rounded-[1.75rem] bg-[#fffaf2] p-3 shadow-xl shadow-black/10 self-start">
   <div className="overflow-hidden rounded-[1.25rem]">
-   <img
-  src="/50andco-map-sketch.png"
-  alt="Map to 50 & Co. Bakery on Jupiter, Makati"
-  className="w-full rounded-[1.25rem]"
-/>
+    <img
+      src="/50andco-map-sketch.png"
+      alt="Map to 50 & Co. Bakery on Jupiter, Makati"
+      className="w-full rounded-[1.25rem]"
+    />
   </div>
 
   <p className="mt-3 text-center text-xs uppercase tracking-[0.25em] text-[#2f241d]/45">
-    50 & Co. Bakery · Jupiter, Makati
+    Find us on Jupiter Street
   </p>
+
+  <a
+    href="https://www.google.com/maps/search/?api=1&query=New%20Solid%20Building%20123%20Jupiter%20Makati"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-4 block"
+  >
+    <Button
+  className="w-full rounded-full bg-[#2f241d] px-7 text-white hover:bg-[#46362c]"
+>
+      Open in Maps
+    </Button>
+  </a>
 </div>
     </div>
 
