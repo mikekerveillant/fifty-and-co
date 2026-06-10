@@ -643,20 +643,18 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       </div>
 
       <div className="rounded-[1.75rem] bg-[#fffaf2] p-3 shadow-2xl shadow-black/20">
-        <div className="overflow-hidden rounded-[1.25rem]">
-          <iframe
-            title="50 & Co. Bakery Map"
-            src="https://www.google.com/maps?q=New%20Solid%20Building%20123%20Jupiter%20Makati%20City&output=embed"
-            className="h-[320px] w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+  <div className="overflow-hidden rounded-[1.25rem]">
+   <img
+  src="/50andco-map-sketch.png"
+  alt="Map to 50 & Co. Bakery on Jupiter, Makati"
+  className="w-full rounded-[1.25rem]"
+/>
+  </div>
 
-        <p className="mt-3 text-center text-xs uppercase tracking-[0.25em] text-[#2f241d]/45">
-          New Solid Building · Jupiter, Makati
-        </p>
-      </div>
+  <p className="mt-3 text-center text-xs uppercase tracking-[0.25em] text-[#2f241d]/45">
+    50 & Co. Bakery · Jupiter, Makati
+  </p>
+</div>
     </div>
 
     <div className="bg-[#fffaf2] p-8 text-[#2f241d] md:p-12">
