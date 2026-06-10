@@ -660,21 +660,46 @@ const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     </div>
 
     <div className="bg-[#fffaf2] p-8 text-[#2f241d] md:p-12">
-      <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#2f241d]/50">
-        Follow Along
-      </p>
+  <p className="text-center text-sm font-bold uppercase tracking-[0.3em] text-[#c78d8d]">
+    Follow Along
+  </p>
 
-      <p className="mt-4 text-lg leading-8">
-        Follow 50 & Co. for weekly releases, limited bakes, and Saturday
-        Sandwich Club drops.
-      </p>
+  <div className="mx-auto mt-4 h-px w-24 bg-[#c78d8d]/40" />
 
-      <a href={instagram} target="_blank" rel="noopener noreferrer">
-        <Button className="mt-8 rounded-full bg-[#c78d8d] px-7 text-white hover:bg-[#b97b7b]">
-          Follow @50andco.bakery
-        </Button>
-      </a>
-    </div>
+  <p className="mx-auto mt-8 max-w-xs text-center text-2xl font-serif leading-relaxed">
+    Follow 50 & Co. for weekly releases, limited bakes, and Saturday
+    Sandwich Club drops.
+  </p>
+
+  <div className="my-10">
+    <img
+      src="/bakery-sketch.png"
+      alt="Assorted baked goods"
+      className="mx-auto w-full max-w-[320px]"
+    />
+  </div>
+
+  <a href={instagram} target="_blank" rel="noopener noreferrer">
+    <Button className="mx-auto flex rounded-full bg-[#c78d8d] px-8 py-6 text-white hover:bg-[#b97b7b]">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="mr-3 h-5 w-5"
+      >
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Z" />
+      </svg>
+
+      Follow @50andco.bakery
+    </Button>
+  </a>
+
+  <div className="mt-10 flex items-center justify-center gap-4 text-[#c78d8d]/50">
+    <div className="h-px w-16 bg-current" />
+    <span>♡</span>
+    <div className="h-px w-16 bg-current" />
+  </div>
+</div>
   </div>
 </section>
 
